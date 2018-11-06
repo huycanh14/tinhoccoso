@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route cho giao diện người dùng
+Route::get('index', 'PageController@index');
