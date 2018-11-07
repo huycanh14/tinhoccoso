@@ -16,4 +16,6 @@ Route::get('/', function () {
 });
 
 //Route cho giao diện người dùng
-Route::get('index', 'PageController@index');
+Route::get('trang-chu', 'PagesController@index')->name('index');
+Route::get('loai-san-pham/{id}', 'PagesController@loai_sanpham');
+Route::get('thuong-hieu-san-pham/{id}', 'PagesController@thuonghieu_sanpham');

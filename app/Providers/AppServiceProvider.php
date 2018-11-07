@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Product_category;
+use App\Brand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //chia sẻ thư mục sản phẩm
+        $product_category = Product_category::all();
+        view()->share('product_category', $product_category);
+
+        $brands = Brand::all();
+        view()->share('brands', $brands);
     }
 
     /**

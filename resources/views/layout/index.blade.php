@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Laravel </title>
+	<title>@yield('title')</title>
 	<base href="{{ asset('') }}">
 	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -66,5 +66,16 @@
 				)
 		})
 	</script>
+	{{-- @yield('css')
+
+	@yield('javascript') --}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.l-inline .ov li .none-click-product').on('click', function(event) {
+				// event.preventDefault();
+			});
+		});
+	</script>
+
 </body>
 </html>
