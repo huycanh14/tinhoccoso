@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/','PagesController@index');
 
 //Route cho giao diện người dùng
 Route::get('trang-chu', 'PagesController@index')->name('index');
 Route::get('loai-san-pham/{id}', 'PagesController@loai_sanpham');
 Route::get('thuong-hieu-san-pham/{id}', 'PagesController@thuonghieu_sanpham');
+Route::get('gioi-thieu', 'PagesController@about')->name('about');
+Route::get('lien-he', 'PagesController@contacts')->name('contacts');
+Route::get('chi-tiet-san-pham/{id}/{slug}', 'PagesController@getProduct');

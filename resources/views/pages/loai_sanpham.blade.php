@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<ul class="aside-menu">
- 						@foreach ($brands as $item)
+ 						@foreach ($product_category as $item)
  							<li><a href="thuong-hieu-san-pham/{{ $item->id }}">{{$item->name}}</a></li>
  						@endforeach
 					</ul>
@@ -45,7 +45,7 @@
 										<div class="ribbon-wrapper" style="z-index: 1"><div class="ribbon sale">Sale</div></div>
 									@endif
 									<div class="single-item-header">
-										<a href="product.html"><img src="{{$item->img}}" alt="" height="250px"></a>
+										<a href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}"><img src="{{$item->img}}" alt="" height="250px"></a>
 									</div>
 									<div class="single-item-body">
 										<p class="single-item-title" style="height: 50px;">{{$item->name}} VNĐ</p>
@@ -60,7 +60,7 @@
 									</div>
 									<div class="single-item-caption">
 										<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-										<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+										<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Details <i class="fa fa-chevron-right"></i></a>
 										<div class="clearfix"></div>
 									</div>
 								</div>
@@ -87,7 +87,7 @@
 										<div class="ribbon-wrapper" style="z-index: 1"><div class="ribbon sale">Sale</div></div>
 									@endif
 									<div class="single-item-header">
-										<a href="product.html"><img src="{{$item->img}}" alt="" height="250px"></a>
+										<a href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}"><img src="{{$item->img}}" alt="" height="250px"></a>
 									</div>
 									<div class="single-item-body">
 										<p class="single-item-title" style="height: 50px;">{{$item->name}}</p>
@@ -102,7 +102,7 @@
 									</div>
 									<div class="single-item-caption">
 										<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-										<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+										<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Details <i class="fa fa-chevron-right"></i></a>
 										<div class="clearfix"></div>
 									</div>
 								</div>

@@ -66,16 +66,6 @@
 				)
 		})
 	</script>
-	{{-- @yield('css')
-
-	@yield('javascript') --}}
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('.l-inline .ov li .none-click-product').on('click', function(event) {
-				// event.preventDefault();
-			});
-		});
-	</script>
 
 </body>
 </html>

@@ -98,8 +98,15 @@
 							@endforeach
 						</ul>
 					</li>
-					<li><a href="about.html">Giới thiệu</a></li>
-					<li><a href="contacts.html">Liên hệ</a></li>
+					<li><a href="{{ route('index') }}" class="none-click-product">Thương hiệu</a>
+						<ul class="sub-menu">
+							@foreach ($brands as $item)
+								<li><a style="z-index: 10" href="thuong-hieu-san-pham/{{$item->id}}">{{$item->name}} </a></li>
+							@endforeach
+						</ul>
+					</li>
+					<li><a href="{{ route('about') }}">Giới thiệu</a></li>
+					<li><a href="{{ route('contacts') }}">Liên hệ</a></li>
 				</ul>
 				<div class="clearfix"></div>
 			</nav>

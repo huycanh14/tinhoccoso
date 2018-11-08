@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Product_category;
 use App\Product_image;
+use App\Product_review;
 use App\Banner;
 use App\Brand;
 
@@ -60,5 +61,45 @@ class PagesController extends Controller
     		'product_new' => $product_new
     	];
     	return view('pages.thuonghieu_sanpham', $data);
+    }
+
+    public function about()
+    {
+    	return view('pages.gioi_thieu');
+    }
+
+    public function contacts()
+    {
+    	return view('pages.lien_he');
+    }
+
+    public function getProduct($id)
+    {
+    	$product = Product::join('product_images', 'products.id', '=', 'product_images.product_id')->select('products.*' ,'product_images.img as img')->where('products.id', '=', $id)->first();
+
+    	$product_review = Product_review::join('customers', 'product_reviews.user_id', '=', 'customers.id')->select('product_reviews.*', 'customers.fullname as customer_name')->where('product_reviews.product_id', '=', $id)->orderBy('created_at', 'DESC')->paginate(6, ['*'],  $product->slug . '-reviews-page');
+
+    	$product_new = Product::join('product_images', 'products.id', '=', 'product_images.product_id')->select('products.*' ,'product_images.img as img')->where([
+    		['products.is_new', '=', '1'],
+    		['products.id', '<>', $id]
+    	])->orderBy('id', 'DESC')->take(4)->get();
+
+    	$product_best_sellers = Product::join('product_images', 'products.id', '=', 'product_images.product_id')->select('products.*' ,'product_images.img as img')->where([
+    		['products.id', '<>', $id],
+    		['products.is_featured', '=', '1']
+    	])->orderBy('id', 'DESC')->take(4)->get();
+
+    	$product_relate = Product::join('product_images', 'products.id', '=', 'product_images.product_id')->select('products.*' ,'product_images.img as img')->where([
+    		['products.id', '<>', $id],
+    		['products.brand_id', '=', $product->brand_id]
+    	])->orderBy('id', 'DESC')->take(6)->get();
+    	$data = [
+    		'product' => $product,
+    		'product_review' => $product_review,
+    		'product_new' => $product_new,
+    		'product_best_sellers' => $product_best_sellers,
+    		'product_relate' => $product_relate
+    	];
+    	return view('pages.chitiet_sanpham', $data);
     }
 }
