@@ -45,21 +45,23 @@
 
 						<p>Options:</p>
 						<div class="single-item-options">
-							<select class="wc-select" name="size">
+							{{-- <select class="wc-select" name="size">
 								<option>Size</option>
 								<option value="XS">XS</option>
 								<option value="S">S</option>
 								<option value="M">M</option>
 								<option value="L">L</option>
 								<option value="XL">XL</option>
-							</select>
+							</select> --}}
+							
 							<select class="wc-select" name="color">
 								<option>Color</option>
-								<option value="Red">Red</option>
-								<option value="Green">Green</option>
-								<option value="Yellow">Yellow</option>
-								<option value="Black">Black</option>
-								<option value="White">White</option>
+								@php
+									$color = explode(',', $product->colors);
+								@endphp
+								@foreach ($color as $item)
+									<option value="{{$item}}" style="text-transform: uppercase;">{{$item}}</option>
+								@endforeach
 							</select>
 							<select class="wc-select" name="color">
 								<option>Qty</option>
