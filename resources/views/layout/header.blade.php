@@ -93,7 +93,7 @@
 					<li><a href="{{ route('index') }}">Trang chủ</a></li>
 					<li><a href="{{ route('index') }}" class="none-click-product">Sản phẩm</a>
 						<ul class="sub-menu">
-							@foreach ($product_category as $item)
+							@foreach ($product_categories as $item)
 								<li><a style="z-index: 10" href="loai-san-pham/{{$item->id}}">{{$item->name}} </a></li>
 							@endforeach
 						</ul>

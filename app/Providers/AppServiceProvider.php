@@ -16,8 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //chia sẻ thư mục sản phẩm
-        $product_category = Product_category::all();
-        view()->share('product_category', $product_category);
+        $product_categories = Product_category::all();
+        view()->share('product_categories', $product_categories);
 
         $brands = Brand::all();
         view()->share('brands', $brands);

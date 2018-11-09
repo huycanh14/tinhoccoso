@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Product_category extends Model
 {
     protected $table = "product_categories"; //thương hiệu sản phẩm
+    // public $timestamps = true; 
+    // const UPDATED_AT = null;
+    // const CREATED_AT = 'creation_date';
+// const UPDATED_AT = 'creation_date';
 
     public function product()
     {
