@@ -1,4 +1,7 @@
 @extends('admin.layout.index')
+@section('title')
+    Smarshop - Admin | Product Review - {{$product->name}}
+@endsection
 @section('content')
 <div id="page-wrapper">
     <div class="container-fluid">

@@ -55,4 +55,20 @@ Route::group(['prefix' => 'admin'], function(){
 
 		Route::get('delete/{id}', 'BrandController@delete');
 	});
+	//admin/product/index
+	Route::group(['prefix' => 'product'], function(){
+		Route::get('index', 'ProductController@index')->name('product_index');
+
+		Route::get('create', 'ProductController@create')->name('product_create');
+		Route::post('create', 'ProductController@post_create');
+
+		Route::get('update/{id}', 'ProductController@update');
+		Route::post('update/{id}', 'ProductController@post_update');
+
+		Route::get('delete/{id}', 'ProductController@delete');
+	});
+	//admin/product_review/index/{id}
+	Route::group(['prefix' => 'product_review'], function(){
+		Route::get('index/{id}', 'Product_reviewController@index');
+	});
 });

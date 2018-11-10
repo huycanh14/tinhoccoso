@@ -69,7 +69,7 @@ class Product_categoryController extends Controller
         
         if($null == "")
             return redirect('admin/product-category/update/'.$id)->withErrors('Tên Danh mục này đã tồn tại.');
-        $tgian = date('Y-m-d H:i:s');
+        //$tgian = date('Y-m-d H:i:s');
         $product_category->name = $request->name;
     	$product_category->slug = changeTitle($request->name);
     	$product_category->status = $request->status;

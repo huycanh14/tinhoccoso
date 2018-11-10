@@ -41,13 +41,13 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-cube fa-fw"></i> Sản phẩm<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Product</a>
+                        <a href="{{ route('product_index') }}">Danh sách sản phẩm</a>
                     </li>
                     <li>
-                        <a href="#">Add Product</a>
+                        <a href="{{ route('product_create') }}">Thêm sản phẩm</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
