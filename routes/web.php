@@ -70,5 +70,32 @@ Route::group(['prefix' => 'admin'], function(){
 	//admin/product_review/index/{id}
 	Route::group(['prefix' => 'product_review'], function(){
 		Route::get('index/{id}', 'Product_reviewController@index');
+
+		Route::get('update/{product_id}/{id}', 'Product_reviewController@update');
+		Route::post('update/{product_id}/{id}', 'Product_reviewController@post_update');
+	});
+
+	//admin/order_new/index
+	Route::group(['prefix' => 'order_new'], function(){
+		Route::get('index', 'OrderController@indexNew')->name('order_new_index');
+		Route::get('delete/{id}', 'OrderController@deleteNew');
+	});
+
+	//admin/order_old/index
+	Route::group(['prefix' => 'order_old'], function(){
+		Route::get('index', 'OrderController@indexOld')->name('order_old_index');
+		Route::get('delete/{id}', 'OrderController@deleteOld');
+
+	});
+
+	//admin/order_item/index/{id}
+	Route::group(['prefix' => 'order_item'], function(){
+		Route::get('index/{order_id}', 'Order_itemController@index')->name('order_item_index');
+		Route::post('index/{order_id}', 'OrderController@update');
+	});
+
+	//admin/customer/index
+	Route::group(['prefix' => 'customer'], function(){
+		Route::get('index', 'CustomerController@index')->name('customer_index');
 	});
 });

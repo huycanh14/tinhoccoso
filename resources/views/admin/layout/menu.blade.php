@@ -53,6 +53,27 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
+                <a href="#"><i class="fa fa-cube fa-fw"></i> Đơn hàng<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ route('order_new_index') }}">Đơn hàng mới</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('order_old_index') }}">Đơn hàng cũ</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-users fa-fw"></i> Khách hàng<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ route('customer_index') }}">Danh sách</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>

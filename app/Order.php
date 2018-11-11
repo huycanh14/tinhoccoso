@@ -6,7 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    // protected $fillable = [
+    //     'author',
+    //     'name',
+    //     'updated_at'
+    // ];
 	protected $table = "orders";
+    //const CREATED_AT = null;
+    //public $timestamps = false;
+    protected $guarded = [
+        'id',
+        'created_at'
+    ];
 
     public function order_item()
     {
