@@ -28,8 +28,10 @@ Route::get('chi-tiet-san-pham/{id}/{slug}', 'PagesController@getProduct');
 /*Route::get('thu', function(){
 	return view('admin.product.index');
 });*/
-
-Route::group(['prefix' => 'admin'], function(){
+Route::get('admin/login', 'AdminController@login')->name('admin_login');
+Route::post('admin/login', 'AdminController@post_login');
+Route::get('admin/logout', 'AdminController@logout')->name('admin_logout');
+Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function(){
 	//Product_category
 	//admin/product-category/index
 	Route::group(['prefix' => 'product-category'], function(){
@@ -97,5 +99,18 @@ Route::group(['prefix' => 'admin'], function(){
 	//admin/customer/index
 	Route::group(['prefix' => 'customer'], function(){
 		Route::get('index', 'CustomerController@index')->name('customer_index');
+		Route::get('delete/{id}', 'CustomerController@delete');
+	});
+
+	//admin/user/index
+	Route::group(['prefix' => 'user'], function(){
+		Route::get('index', 'AdminController@index')->name('admin_index');
+		Route::get('delete/{id}', 'AdminController@delete');
+
+		Route::get('create', 'AdminController@create')->name('admin_create');
+		Route::post('create', 'AdminController@post_create');
+
+		Route::get('update/{id}', 'AdminController@update');
+		Route::post('update/{id}', 'AdminController@post_update');
 	});
 });

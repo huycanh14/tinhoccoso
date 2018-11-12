@@ -11,6 +11,17 @@ class CustomerController extends Controller
 {
     public function index()
     {
-    	return view('admin.customer.index');
+    	$customers = Customer::all();
+    	$data = [
+    		'customers' => $customers
+    	];
+    	return view('admin.customer.index', $data);
+    }
+
+    public function delete($id)
+    {
+    	$customer = Customer::find($id);
+    	$customer->delete();
+    	return redirect('admin/customer/index')->with('thongbao', 'Xóa khách hàng thành công');
     }
 }
