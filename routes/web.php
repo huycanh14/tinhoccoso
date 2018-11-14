@@ -23,6 +23,8 @@ Route::get('thuong-hieu-san-pham/{id}', 'PagesController@thuonghieu_sanpham');
 Route::get('gioi-thieu', 'PagesController@about')->name('about');
 Route::get('lien-he', 'PagesController@contacts')->name('contacts');
 Route::get('chi-tiet-san-pham/{id}/{slug}', 'PagesController@getProduct');
+//tìm kiếm
+Route::get('search', 'PagesController@search')->name('tim_kiem');
 
 //Đặt hàng - Order
 Route::get('add-to-cart/{id}', 'OrderController@getAddToCart');

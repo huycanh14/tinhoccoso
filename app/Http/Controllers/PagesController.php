@@ -106,4 +106,15 @@ class PagesController extends Controller
     	];
     	return view('pages.chitiet_sanpham', $data);
     }
+
+    public function search(Request $request)
+    {
+        $tukhoa = $request->search;
+        $products = Product::join('product_images', 'products.id', '=', 'product_images.product_id')->select('products.*' ,'product_images.img as img')->where('name', 'like', '%'.$tukhoa.'%')->orWhere('price', 'like', '%'.$tukhoa.'%')->paginate(8);
+        $data = [
+            'products' => $products,
+            'search' => $tukhoa
+        ];
+        return view('pages.search', $data);
+    }
 }
