@@ -31,6 +31,8 @@
                         <th>Số điện thoại</th>
                         <th>Địa chỉ</th>
                         <th>Tổng tiền</th>
+                        <th>Hình thức mua</th>
+                        <th>Thời gian mua</th>
                         <th>Chi tiết</th>
                         <th>Xóa</th>
                     </tr>
@@ -43,6 +45,8 @@
                             <td>{{$item->phone}}</td>
                             <td>{{$item->address}} - {{$item->huyen}} - {{$item->tinh}}</td>
                             <td>{{$item->amount}} VNĐ</td>
+                            <td>{{$item->payment}}</td>
+                            <td>{{date_format($item->updated_at, "d/m/Y")}}</td>
                             {{-- <td>{{number_format($item->amount)}} VNĐ</td> --}}
                             @if (isset($orderNew))
                                 <td class="center"><i class="fa fa-eye fa-fw"></i> <a href="admin/order_item/index/{{$item->id}}">View</a></td>

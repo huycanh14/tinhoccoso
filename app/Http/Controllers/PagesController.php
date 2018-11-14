@@ -9,6 +9,10 @@ use App\Product_image;
 use App\Product_review;
 use App\Banner;
 use App\Brand;
+use App\Cart;
+use Session;
+use App\District;
+use App\Province;
 
 class PagesController extends Controller
 {

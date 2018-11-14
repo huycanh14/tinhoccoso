@@ -42,8 +42,8 @@
 							{!!$product->content!!}
 						</div>
 						<div class="space20">&nbsp;</div>
-
-						<p>Options:</p>
+{{-- 
+						<p>Options:</p> --}}
 						<div class="single-item-options">
 							{{-- <select class="wc-select" name="size">
 								<option>Size</option>
@@ -54,7 +54,7 @@
 								<option value="XL">XL</option>
 							</select> --}}
 							
-							<select class="wc-select" name="color">
+							{{-- <select class="wc-select" name="color">
 								<option>Color</option>
 								@php
 									$color = explode(',', $product->colors);
@@ -70,8 +70,9 @@
 								<option value="3">3</option>
 								<option value="4">4</option>
 								<option value="5">5</option>
-							</select>
-							<a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+							</select> --}}
+							<a class="add-to-cart" href="add-to-cart/{{$product->id}}"><i class="fa fa-shopping-cart"></i></a>
+							<span style="padding: 10px; font-size: 16px;"><b>Mua hàng</b></span>
 							<div class="clearfix"></div>
 						</div>
 					</div>
@@ -137,8 +138,8 @@
 										</p>
 									</div>
 									<div class="single-item-caption">
-										<a class="add-to-cart pull-left" href="#"><i class="fa fa-shopping-cart"></i></a>
-										<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Details <i class="fa fa-chevron-right"></i></a>
+										<a class="add-to-cart pull-left" href="add-to-cart/{{$item->id}}"><i class="fa fa-shopping-cart"></i></a>
+										<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
 										<div class="clearfix"></div>
 									</div>
 								</div>

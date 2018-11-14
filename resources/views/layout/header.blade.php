@@ -9,9 +9,13 @@
 			</div>
 			<div class="pull-right auto-width-right">
 				<ul class="top-details menu-beta l-inline">
-					<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-					<li><a href="#">Đăng kí</a></li>
-					<li><a href="#">Đăng nhập</a></li>
+					@if (Session::has('user'))
+						<li><a href="#"><i class="fa fa-user"></i>{{Session('user')->fullname}}</a></li>
+						<li><a href="{{ route('customer_logout') }}"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a></li>
+					@else
+						<li><a href="{{ route('customer_signup') }}">Đăng kí</a></li>
+						<li><a href="{{ route('customer_login') }}">Đăng nhập</a></li>
+					@endif
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -32,53 +36,39 @@
 				</div>
 
 				<div class="beta-comp">
-					<div class="cart">
-						<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i></div>
-						<div class="beta-dropdown cart-body">
-							<div class="cart-item">
-								<div class="media">
-									<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/1.png" alt=""></a>
-									<div class="media-body">
-										<span class="cart-item-title">Sample Woman Top</span>
-										<span class="cart-item-options">Size: XS; Colar: Navy</span>
-										<span class="cart-item-amount">1*<span>$49.50</span></span>
+					@if (Session::has('cart'))
+						<div class="cart">
+							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart')){{Session('cart')->totalQty}} @else Trống  @endif) <i class="fa fa-chevron-down"></i></div>
+							<div class="beta-dropdown cart-body">
+								
+									@foreach ($product_cart as $product)
+										<div class="cart-item">
+											<a href="delete-cart/{{$product['item']['id']}}" class="cart-item-delete"><i class="fa fa-times"></i></a>
+											<div class="media">
+												<a class="pull-left" href="#"><img src="{{$product['product_image']['img']}}" alt=""></a>{{-- {{$product['item']['img']}} ưertyu
+												{{$product['image']}} --}}
+												<div class="media-body">
+													<span class="cart-item-title">{{$product['item']['name']}}</span>
+													{{-- <span class="cart-item-options">{{$product['item']['color']}}</span> --}}
+													<span class="cart-item-amount">{{$product['qty']}} * <span>{{number_format($product['item']['price'])}} VNĐ</span></span>
+												</div>
+											</div>
+										</div>
+									@endforeach
+								
+									<div class="cart-caption">
+										<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} VNĐ</span></div>
+										<div class="clearfix"></div>
+
+										<div class="center">
+											<div class="space10">&nbsp;</div>
+											<a href="{{ route('checkout') }}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+										</div>
 									</div>
-								</div>
+								
 							</div>
-
-							<div class="cart-item">
-								<div class="media">
-									<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/2.png" alt=""></a>
-									<div class="media-body">
-										<span class="cart-item-title">Sample Woman Top</span>
-										<span class="cart-item-options">Size: XS; Colar: Navy</span>
-										<span class="cart-item-amount">1*<span>$49.50</span></span>
-									</div>
-								</div>
-							</div>
-
-							<div class="cart-item">
-								<div class="media">
-									<a class="pull-left" href="#"><img src="source/assets/dest/images/products/cart/3.png" alt=""></a>
-									<div class="media-body">
-										<span class="cart-item-title">Sample Woman Top</span>
-										<span class="cart-item-options">Size: XS; Colar: Navy</span>
-										<span class="cart-item-amount">1*<span>$49.50</span></span>
-									</div>
-								</div>
-							</div>
-
-							<div class="cart-caption">
-								<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
-								<div class="clearfix"></div>
-
-								<div class="center">
-									<div class="space10">&nbsp;</div>
-									<a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
-								</div>
-							</div>
-						</div>
-					</div> <!-- .cart -->
+						</div> <!-- .cart -->
+					@endif
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -91,14 +81,14 @@
 			<nav class="main-menu">
 				<ul class="l-inline ov">
 					<li><a href="{{ route('index') }}">Trang chủ</a></li>
-					<li><a href="{{ route('index') }}" class="none-click-product">Sản phẩm</a>
+					<li><a href="" class="none-click-product">Sản phẩm</a>
 						<ul class="sub-menu">
 							@foreach ($product_categories as $item)
 								<li><a style="z-index: 10" href="loai-san-pham/{{$item->id}}">{{$item->name}} </a></li>
 							@endforeach
 						</ul>
 					</li>
-					<li><a href="{{ route('index') }}" class="none-click-product">Thương hiệu</a>
+					<li><a href="#" class="none-click-product">Thương hiệu</a>
 						<ul class="sub-menu">
 							@foreach ($brands as $item)
 								<li><a style="z-index: 10" href="thuong-hieu-san-pham/{{$item->id}}">{{$item->name}} </a></li>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order_item extends Model
 {
     protected $table = "order_items";
+    public $timestamps = false;
 
     public function order()
     {

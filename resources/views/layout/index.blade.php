@@ -55,6 +55,7 @@
 	<script src="source/assets/dest/js/wow.min.js"></script>
 	<!--customjs-->
 	<script src="source/assets/dest/js/custom2.js"></script>
+	{{-- <link rel="stylesheet" href="https://code.jquery.com/jquery-3.3.1.min.js"> --}}
 	<script>
 		$(document).ready(function($) {    
 			$(window).scroll(function(){
@@ -66,6 +67,7 @@
 				)
 		})
 	</script>
+	@yield('script')
 
 </body>
 </html>

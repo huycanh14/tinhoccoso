@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<ul class="aside-menu">
- 						@foreach ($product_category as $item)
+ 						@foreach ($product_categories as $item)
  							<li><a href="thuong-hieu-san-pham/{{ $item->id }}">{{$item->name}}</a></li>
  						@endforeach
 					</ul>
@@ -59,8 +59,8 @@
 										</p>
 									</div>
 									<div class="single-item-caption">
-										<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-										<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Details <i class="fa fa-chevron-right"></i></a>
+										<a class="add-to-cart pull-left" href="add-to-cart/{{$item->id}}"><i class="fa fa-shopping-cart"></i></a>
+										<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
 										<div class="clearfix"></div>
 									</div>
 								</div>
@@ -101,8 +101,8 @@
 										</p>
 									</div>
 									<div class="single-item-caption">
-										<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-										<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Details <i class="fa fa-chevron-right"></i></a>
+										<a class="add-to-cart pull-left" href="add-to-cart/{{$item->id}}"><i class="fa fa-shopping-cart"></i></a>
+										<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
 										<div class="clearfix"></div>
 									</div>
 								</div>

@@ -35,7 +35,7 @@
 				<div class="col-sm-12">
 					<div class="beta-products-list">
 						<h4>Sản phẩm mới</h4>
-						<div class="beta-products-details">
+						<div class="beta-products-Chi tiết">
 							{{-- <p class="pull-left">438 styles found</p> --}}
 							<div class="clearfix"></div>
 						</div>
@@ -65,8 +65,8 @@
 											</p>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Details <i class="fa fa-chevron-right"></i></a>
+											<a class="add-to-cart pull-left" href="add-to-cart/{{$item->id}}"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>
@@ -80,7 +80,7 @@
 
 					<div class="beta-products-list">
 						<h4>Sản phẩm khuyến mại</h4>
-						<div class="beta-products-details">
+						<div class="beta-products-Chi tiết">
 							{{-- <p class="pull-left">438 styles found</p> --}}
 							<div class="clearfix"></div>
 						</div>
@@ -101,8 +101,8 @@
 											</p>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Details <i class="fa fa-chevron-right"></i></a>
+											<a class="add-to-cart pull-left" href="add-to-cart/{{$item->id}}"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="chi-tiet-san-pham/{{$item->id}}/{{$item->slug}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>

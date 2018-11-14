@@ -24,10 +24,24 @@ Route::get('gioi-thieu', 'PagesController@about')->name('about');
 Route::get('lien-he', 'PagesController@contacts')->name('contacts');
 Route::get('chi-tiet-san-pham/{id}/{slug}', 'PagesController@getProduct');
 
+//Đặt hàng - Order
+Route::get('add-to-cart/{id}', 'OrderController@getAddToCart');
+Route::get('delete-cart/{id}', 'OrderController@getDeleteItemCart');
+Route::get('dat-hang', 'OrderController@checkout')->name('checkout');
+Route::post('dat-hang', 'OrderController@post_checkout')->name('post_checkout');
+
+Route::group(['prefix' => 'ajax'], function(){
+	Route::get('districts/{province_id}', 'AjaxController@getDistrict');
+});
+
+//đăng kí và đăng nhập
+Route::get('login', 'CustomerController@login')->name('customer_login');
+Route::post('login', 'CustomerController@post_login');
+Route::get('signup', 'CustomerController@signup')->name('customer_signup');
+Route::post('signup', 'CustomerController@post_signup');
+//Đăng xuất
+Route::get('logout', 'CustomerController@logout')->name('customer_logout');
 //Route cho admin
-/*Route::get('thu', function(){
-	return view('admin.product.index');
-});*/
 Route::get('admin/login', 'AdminController@login')->name('admin_login');
 Route::post('admin/login', 'AdminController@post_login');
 Route::get('admin/logout', 'AdminController@logout')->name('admin_logout');
