@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Product_image;
 use App\Product_review;
+use Session;
 
 class Product_reviewController extends Controller
 {
@@ -47,5 +48,21 @@ class Product_reviewController extends Controller
     	$product_review->content = $request->content;
     	$product_review->save();
     	return redirect('admin/product_review/update/' .$product_id .'/'.$id)->with('thongbao', 'Sửa đánh giá thành công');
+    }
+
+    public function review(Request $request, $id)
+    {
+        $this->validate($request, [
+            'content'=>'required'
+        ], [
+            'name.required' => 'Nội dung bạn đang để trống'
+        ]);
+        $product_review = new Product_review;
+        $product_review->product_id = $id;
+        $product_review->user_id = Session('user')->id;
+        $product_review->content = $request->content;
+        $product_review->rate = $request->rate;
+        $product_review->save();
+        return redirect()->back()->with('thongbao', 'Đánh giá thành công');
     }
 }

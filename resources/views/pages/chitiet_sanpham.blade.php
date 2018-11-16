@@ -112,6 +112,46 @@
 						
 					</div>
 				</div>
+				@if (Session::has('user'))
+					<div><h5>Đánh giá</h5></div>
+					<div class="comment-list">
+						@if (count($errors) > 0)
+		                    <div class="alert alert-danger">
+		                        @foreach ($errors->all() as $item)
+		                            {{ $item }} <br>
+		                        @endforeach
+		                    </div>
+		                @endif
+		                @if (session('thongbao'))
+		                    <div class="alert alert-success">
+		                        {{ session('thongbao') }}
+		                    </div>
+		                @endif
+						<form action="chi-tiet-san-pham/{{$product->id}}/{{$product->slug}}" method="post">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							<div class="row">
+								<div class="rate col-md-2">
+									<select name="rate" id="">
+										@for ($i = 1; $i < 6; $i++)
+											<option value="{{$i}}">{{$i}}</option>
+										@endfor
+									</select>
+								</div>
+								<div class="col-md-10">
+									<b style="font-size: 24px;">Sao <i class="fa fa-star" style="color: #c8c208;"></i></b>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col col-md-10">
+									<input type="text" name="content" value="">
+								</div>
+								<div class="col col-md-2">
+									<input type="submit" class="beta-btn primary" value="Đánh giá" style="background: #3a5c83; color: #ffff">
+								</div>
+							</div>
+						</form>
+					</div>
+				@endif
 				<div class="space50">&nbsp;</div>
 				<div class="beta-products-list">
 					<h4>Sản phẩm liên quan</h4>
