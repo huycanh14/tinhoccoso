@@ -28,11 +28,6 @@ class Customer extends Model
     	return $this->hasManyThrough('App\Order_item', 'App\Order', 'order_id', 'user_id', 'id');
     }
 
-    public function customer_group()
-    {
-    	return $this->belongsTo('App\Customer_group', 'customer_group_id', 'id');
-    }
-
     public function province()
     {
     	return $this->belongsTo('App\Province', 'province_id', 'id');
